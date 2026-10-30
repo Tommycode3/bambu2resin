@@ -1,0 +1,41 @@
+[project]
+name = "travaso"
+version = "0.1.0"
+description = "Ports Bambu Studio projects to Anycubic MSLA resin printers, down to a print-ready .pm3 file"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "AGPL-3.0-or-later"
+license-files = ["LICENSE"]
+authors = [{ name = "Tommaso Maggiolo" }]
+keywords = ["3d-printing", "resin", "msla", "slicer", "anycubic", "bambu", "3mf"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Manufacturing",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+dependencies = [
+    "numpy>=1.26",
+    "trimesh>=4.0",
+    "manifold3d>=2.3",
+    "shapely>=2.0",
+    "pillow>=10.0",
+    "scipy>=1.11",
+    "scikit-image>=0.22",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+travaso = "travaso.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Tommycode3/bambu2resin"
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["travaso*"]
